@@ -5,12 +5,13 @@ import {
   Text,
 } from 'react-native-paper';
 
-const Landing = () => (
+
+const Landing = ({ navigation }) => (
   <View style={styles.container}>
-    <Text>Login Template</Text>
+    <Text>Login</Text>
     <Text>The easiest way to start your amazing application.</Text>
-    <Button>LOGIN</Button>
-    <Button>SIGN UP</Button>
+    <Button onPress={ () => navigation.navigate('Login') }>LOGIN</Button>
+    <Button onPress={ () => navigation.navigate('Registration') }>SIGN UP</Button>
   </View>
 );
 
