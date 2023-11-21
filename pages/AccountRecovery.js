@@ -1,24 +1,34 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Image } from 'react-native';
 import {
   Button,
   Text,
+  TextInput,
 } from 'react-native-paper';
+import Styles from '../styles/GlobalStyles';
 
-const Login = () => (
-  <View style={styles.container}>
-    <Text>Login Template</Text>
-    <Text>Welcome back.</Text>
-    <Button>LOGIN</Button>
-    <Button>SIGN UP</Button>
+const AccountRecovery = ({ navigation }) => (
+  <View style={Styles.container}>
+    <Image 
+      source={require('../assets/react-icon.png')}
+      style={Styles.image} />
+    <Text variant='headlineLarge'>Restore Password</Text>
+    <TextInput 
+      style={Styles.block} 
+      mode='outlined' 
+      label="Email" />
+    <Button
+      style={Styles.block}
+      mode='contained'
+      onPress={ () => {} }>
+      Send reset instructions
+    </Button>
+    <Button
+      mode='text'
+      onPress={ () => navigation.navigate('Login') }>
+      Back to login
+    </Button>
   </View>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-  }
-});
-
-export default Login;
+export default AccountRecovery;

@@ -1,39 +1,50 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Image } from 'react-native';
 import {
+  Button,
   Text,
   TextInput,
-  Button,
 } from 'react-native-paper';
+import Styles from '../styles/GlobalStyles';
 
-const Login = () => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  return (
-    <View style={styles.container}>
-      <Text></Text>
-      <TextInput
-        label="Email"
-        value={email}
-        onChangeText={text => setEmail(text)}
-      />
-      <TextInput
-        label="Password"
-        value={text}
-        onChangeText={text => setText(text)}
-      />
-      {/* Forgot your password? */}
-      <Button>LOGIN</Button>
-      <Text>Don't have an account? Sign up</Text>
+const Login = ({ navigation }) => (
+  <View style={Styles.container}>
+    <Image 
+      source={require('../assets/react-icon.png')}
+      style={Styles.image} />
+    <Text variant='headlineLarge'>Welcome back</Text>
+    <TextInput 
+      style={Styles.block} 
+      mode='outlined' 
+      label="Email" />
+    <TextInput 
+      style={Styles.block}  
+      mode='outlined' 
+      label="Password" />
+    <Button
+      mode='text'
+      style={[
+        Styles.subtitleText, 
+        Styles.rightText,
+      ]}
+      onPress={ () => navigation.navigate('AccountRecovery') }>
+      Forgot your password?
+    </Button>
+    <Button 
+      style={Styles.block} 
+      mode='contained'
+      onPress={ () => navigation.navigate('Home') }>
+      Login
+    </Button>
+    <View style={Styles.textContainerRow}>
+      <Text variant='labelLarge' style={Styles.subtitleText}>Don't have an account?</Text>
+      <Button
+        mode='text'
+        onPress={ () => navigation.navigate('Registration') }>
+        Sign Up
+      </Button>
     </View>
-  )
-};
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-  }
-});
+  </View>
+);
 
 export default Login;

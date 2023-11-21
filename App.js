@@ -10,7 +10,6 @@ import Registration from './pages/Registration';
 import AccountRecovery from './pages/AccountRecovery';
 import Home from './pages/Home';
 
-
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -21,7 +20,10 @@ function App() {
           <Stack.Screen name='Landing' component={ Landing } />
           <Stack.Screen name='Login' component={ Login } />
           <Stack.Screen name='Registration' component={ Registration } />
-          <Stack.Screen name='AccountRecovery' component={ AccountRecovery } />
+          <Stack.Screen 
+            name='AccountRecovery' 
+            component={ AccountRecovery } 
+            options={{title: 'Account Recovery'}} />
           <Stack.Screen name='Home' component={ Home } />
         </Stack.Navigator>
       </PaperProvider>
